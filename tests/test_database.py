@@ -1,12 +1,15 @@
 from praktikum.database import Database
 from praktikum.ingredient_types import INGREDIENT_TYPE_SAUCE, INGREDIENT_TYPE_FILLING
 import pytest
+import allure
 
 class TestDatabase:
+    @allure.title("Проверяем инициализацию базы данных")
     def test_init_database(self):
         db = Database()
         assert len(db.buns) == 3 and len(db.ingredients) == 6
     
+    @allure.title("Проверяем доступные булочки в базе данных")
     @pytest.mark.parametrize(
     'index,name,price',
     [
@@ -18,6 +21,7 @@ class TestDatabase:
         db = Database()
         assert db.available_buns()[index].name == name and db.available_buns()[index].price == price
 
+    @allure.title("Проверяем доступные ингредиенты в базе данных")
     @pytest.mark.parametrize(
     'index,type,name,price',
     [
