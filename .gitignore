@@ -1,0 +1,5 @@
+.vscode
+.coverage
+.pytest_cache
+praktikum/__pycache__
+tests/__pycache__
